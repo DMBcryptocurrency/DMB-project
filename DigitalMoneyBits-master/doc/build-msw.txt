@@ -7,7 +7,7 @@ cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP
 software written by Thomas Bernard.
 
 
-See readme-qt.rst for instructions on building Digital Money Bits QT, the
+See readme-qt.rst for instructions on building DigitalMoneyBits QT, the
 graphical user interface.
 
 WINDOWS BUILD NOTES
@@ -76,9 +76,9 @@ make -f Makefile.mingw
 mkdir miniupnpc
 cp *.h miniupnpc/
 
-Digital Money Bits
+DigitalMoneyBits
 -------
 DOS prompt:
-cd \Digital Money Bits\src
+cd \DigitalMoneyBits\src
 mingw32-make -f makefile.mingw
-strip Digital Money Bitsd.exe
+strip DigitalMoneyBitsd.exe
