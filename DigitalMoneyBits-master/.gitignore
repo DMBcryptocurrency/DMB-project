@@ -1,5 +1,5 @@
 src/*.exe
-src/Digital Money Bitsd
+src/DigitalMoneyBitsd
 src/build.h
 .*.swp
 *.*~*
@@ -8,11 +8,11 @@ src/build.h
 *.orig
 *.o
 *.patch
-.Digital Money Bits
+.DigitalMoneyBits
 #compilation and Qt preprocessor part
 *.qm
 Makefile
-Digital Money Bits-qt
+DigitalMoneyBits-qt
 #resources cpp
 qrc_*.cpp
 #qt creator

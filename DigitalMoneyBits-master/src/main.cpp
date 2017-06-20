@@ -68,7 +68,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Digital Money Bits Signed Message:\n";
+const string strMessageMagic = "DigitalMoneyBits Signed Message:\n";
 
 // Settings
 int64_t nTransactionFee = MIN_TX_FEE;
@@ -966,19 +966,24 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int64_t nFees)
 {
-	int64_t nSubsidy = 100 * COIN; // Digital Money Bits base reward
+    int64_t nSubsidy = 0 * COIN;
 
-    // Subsidy is cut in half every 200000 blocks
-    nSubsidy >>= (nBestHeight / 200000);
+    if(nBestHeight < 5000)
+    {
+        nSubsidy = 100 * COIN; // DigitalMoneyBits base reward
+
+        // Subsidy is cut in half every 200000 blocks
+        nSubsidy >>= (nBestHeight / 200000);
     
-     // Minimum subsidy
-    if (nSubsidy < 0.001 * COIN) {
-        nSubsidy = 0.001 * COIN;
-    }
+        // Minimum subsidy
+        if (nSubsidy < 0.001 * COIN) {
+            nSubsidy = 0.001 * COIN;
+        }
 
-    // Premine
-    if(nBestHeight == 2) {
-        nSubsidy = 10000000 * COIN;
+        // Premine
+        if(nBestHeight == 2) {
+            nSubsidy = 10000000 * COIN;
+        }
     }
 
 	if (fDebug && GetBoolArg("-printcreation"))
@@ -990,7 +995,12 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
-    int64_t nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    int64_t nSubsidy = 0 * COIN;
+
+    if(nBestHeight < 5000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    }
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
@@ -2399,7 +2409,7 @@ bool CheckDiskSpace(uint64_t nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low!");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "Digital Money Bits", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "DigitalMoneyBits", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }

@@ -78,7 +78,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // NovaCoin: check prefix
-    if(uri.scheme() != QString("Digital Money Bits"))
+    if(uri.scheme() != QString("DigitalMoneyBits"))
         return false;
 
     SendCoinsRecipient rv;
@@ -123,13 +123,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert Digital Money Bits:// to Digital Money Bits:
+    // Convert DigitalMoneyBits:// to DigitalMoneyBits:
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("Digital Money Bits://"))
+    if(uri.startsWith("DigitalMoneyBits://"))
     {
-        uri.replace(0, 12, "Digital Money Bits:");
+        uri.replace(0, 12, "DigitalMoneyBits:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -273,7 +273,7 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "Digital Money Bits.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "DigitalMoneyBits.lnk";
 }
 
 bool GetStartOnSystemStartup()
@@ -355,7 +355,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "Digital Money Bits.desktop";
+    return GetAutostartDir() / "DigitalMoneyBits.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -396,7 +396,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=Digital Money Bits\n";
+        optionFile << "Name=DigitalMoneyBits\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -417,10 +417,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("Digital Money Bits-qt") + " " + tr("version") + " " +
+    header = tr("DigitalMoneyBits-qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  Digital Money Bits-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  DigitalMoneyBits-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -429,7 +429,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("Digital Money Bits-qt"));
+    setWindowTitle(tr("DigitalMoneyBits-qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));

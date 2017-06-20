@@ -24,11 +24,11 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn_SM->setPlaceholderText(tr("Enter a Digital Money Bits address (e.g. HKFEjmZP7qzdYJ5x9UnLH4Kda3duURPcok)"));
+    ui->addressIn_SM->setPlaceholderText(tr("Enter a DigitalMoneyBits address (e.g. HKFEjmZP7qzdYJ5x9UnLH4Kda3duURPcok)"));
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a Digital Money Bits address (e.g. HKFEjmZP7qzdYJ5x9UnLH4Kda3duURPcok)"));
-    ui->signatureIn_VM->setPlaceholderText(tr("Enter Digital Money Bits signature"));
+    ui->addressIn_VM->setPlaceholderText(tr("Enter a DigitalMoneyBits address (e.g. HKFEjmZP7qzdYJ5x9UnLH4Kda3duURPcok)"));
+    ui->signatureIn_VM->setPlaceholderText(tr("Enter DigitalMoneyBits signature"));
 #endif
 
     GUIUtil::setupAddressWidget(ui->addressIn_SM, this);

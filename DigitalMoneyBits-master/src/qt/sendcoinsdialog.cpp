@@ -37,7 +37,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
 
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a Digital Money Bits address (e.g. HKFEjmZP7qzdYJ5x9UnLH4Kda3duURPcok)"));
+    ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a DigitalMoneyBits address (e.g. HKFEjmZP7qzdYJ5x9UnLH4Kda3duURPcok)"));
 #endif
 
     addEntry();
@@ -462,7 +462,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString & text)
         else if (!CBitcoinAddress(text.toStdString()).IsValid())
         {
             ui->labelCoinControlChangeLabel->setStyleSheet("QLabel{color:red;}");
-            ui->labelCoinControlChangeLabel->setText(tr("WARNING: Invalid Digital Money Bits address"));
+            ui->labelCoinControlChangeLabel->setText(tr("WARNING: Invalid DigitalMoneyBits address"));
         }
         else
         {

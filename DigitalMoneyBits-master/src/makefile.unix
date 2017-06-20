@@ -160,7 +160,7 @@ OBJS= \
     obj/zerocoin/SpendMetaData.o \
     obj/zerocoin/ZeroTest.o
 
-all: Digital Money Bitsd
+all: DigitalMoneyBitsd
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
@@ -208,11 +208,11 @@ obj/zerocoin/%.o: zerocoin/%.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-Digital Money Bitsd: $(OBJS:obj/%=obj/%)
+DigitalMoneyBitsd: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f Digital Money Bitsd
+	-rm -f DigitalMoneyBitsd
 	-rm -f obj/*.o
 	-rm -f obj/zerocoin/*.o
 	-rm -f obj/*.P
