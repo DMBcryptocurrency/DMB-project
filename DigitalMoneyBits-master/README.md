@@ -1,4 +1,4 @@
-Digital Money Bits
+Digital Money Bits 
 =====================================
 
 
@@ -11,3 +11,7 @@ Block Spacing: 300 secs
 
 Port: 64008 RPC Port: 64009
 
+=====================================
+Digital Money Bits V 1.5
+Fix issue in staking
+=====================================
