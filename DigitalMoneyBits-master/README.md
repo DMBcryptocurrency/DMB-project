@@ -15,3 +15,9 @@ Port: 64008 RPC Port: 64009
 Digital Money Bits V 1.5
 Fix issue in staking
 =====================================
+updated the new website domain http://www.digitalmoneybits.com/
+=====================================
+This coin is NOT Dead!!!
+=====================================
+Stay tune for further updates.
+
